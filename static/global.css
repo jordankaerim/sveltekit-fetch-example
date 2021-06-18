@@ -1,0 +1,42 @@
+:root {
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Camphor, Open Sans, Segoe UI, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a:not(class) {
+  text-decoration-skip-ink: auto;
+}
+
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+
+img, picture {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+}
