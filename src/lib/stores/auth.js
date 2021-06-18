@@ -10,7 +10,7 @@ export default {
 	async login(email, password) {
 		const { data: user, error } = await api.post('loggingIn', '/auth/login', { email, password });
 
-		return error || update((_) => ({ user }));
+		return error || update(() => ({ user }));
 	},
 
 	async logout() {

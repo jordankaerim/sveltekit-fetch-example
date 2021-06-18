@@ -1,6 +1,8 @@
 import status from './stores/status';
 import { notifications } from './Notifications.svelte';
 
+const BASE = 'http://localhost:3000/api';
+
 const api = Object.freeze({
 	async request(description, url, method, body, opts = {}) {
 		status.set(this.name, description);
@@ -20,7 +22,7 @@ const api = Object.freeze({
 				body: JSON.stringify(body)
 			});
 		} catch (error) {
-			notifications.error('OFFLINE');
+			return notifications.error('ERROR');
 		}
 
 		let data;
@@ -33,7 +35,7 @@ const api = Object.freeze({
 		status.reset(this.name, description);
 
 		if (!response.ok) {
-			error = data || { code: response.description };
+			error = data || { code: response.status };
 
 			notifications.error(error.code);
 
@@ -59,8 +61,6 @@ const api = Object.freeze({
 		return await this.request(description, url, 'DELETE', undefined, opts);
 	}
 });
-
-const BASE = 'http://localhost:3000/api';
 
 function Api(name, base = BASE) {
 	if (!(this instanceof Api)) {
