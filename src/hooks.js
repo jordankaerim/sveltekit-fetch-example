@@ -7,7 +7,7 @@ export async function handle({ request, resolve }) {
 	} catch (error) {
 		if (error instanceof UserFacingError) {
 			return {
-				status: error.statusCode,
+				status: error.status,
 				body: JSON.stringify({ code: error.code }),
 				headers: { 'content-type': 'application/json' }
 			};
