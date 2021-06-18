@@ -22,7 +22,7 @@ const api = Object.freeze({
 				body: JSON.stringify(body)
 			});
 		} catch (error) {
-			return notifications.error('ERROR');
+			return notifications.error('OFFLINE');
 		}
 
 		let data;
